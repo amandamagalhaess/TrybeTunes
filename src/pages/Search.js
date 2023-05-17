@@ -35,7 +35,6 @@ class Search extends React.Component {
 
   render() {
     const { isSearchButtonDisabled, artistName, loading, APIresponse } = this.state;
-    // console.log(APIresponse);
     return (
       <div data-testid="page-search">
         <Header />
