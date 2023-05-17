@@ -14,15 +14,6 @@ class MusicCard extends React.Component {
     this.callAPI();
   }
 
-  callAPI = () => {
-    this.setState({ loading: false }, async () => {
-      const favorites = await getFavoriteSongs();
-      this.setState({
-        favorites,
-      });
-    });
-  };
-
   handleFavorites = ({ target }) => {
     const { music } = this.props;
     if (target.checked) {
@@ -33,6 +24,15 @@ class MusicCard extends React.Component {
         });
       });
     }
+  };
+
+  callAPI = () => {
+    this.setState({ loading: false }, async () => {
+      const favorites = await getFavoriteSongs();
+      this.setState({
+        favorites,
+      });
+    });
   };
 
   render() {
