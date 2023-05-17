@@ -1,12 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 class MusicCard extends React.Component {
   state = {
     loading: false,
     isFavorite: false,
+    favorites: undefined,
+  };
+
+  componentDidMount() {
+    this.callAPI();
+  }
+
+  callAPI = () => {
+    this.setState({ loading: false }, async () => {
+      const favorites = await getFavoriteSongs();
+      this.setState({
+        favorites,
+      });
+    });
   };
 
   handleFavorites = ({ target }) => {
@@ -24,7 +38,7 @@ class MusicCard extends React.Component {
   render() {
     const { music } = this.props;
     const { trackName, previewUrl, trackId } = music;
-    const { loading, isFavorite } = this.state;
+    const { loading, isFavorite, favorites } = this.state;
     return (
       <div>
         {
@@ -41,14 +55,29 @@ class MusicCard extends React.Component {
               </audio>
               <label>
                 Favorita
-                <input
-                  type="checkbox"
-                  data-testid={ `checkbox-music-${trackId}` }
-                  onChange={ this.handleFavorites }
-                  checked={ isFavorite }
-                />
+                {
+                  favorites
+                  && favorites
+                    .find((favorite) => favorite.trackId === trackId) !== undefined ? (
+                      <input
+                        type="checkbox"
+                        data-testid={ `checkbox-music-${trackId}` }
+                        onChange={ this.handleFavorites }
+                        checked
+                      />
+                    )
+                    : (
+                      <input
+                        type="checkbox"
+                        data-testid={ `checkbox-music-${trackId}` }
+                        onChange={ this.handleFavorites }
+                        checked={ isFavorite }
+                      />
+                    )
+                }
               </label>
-            </div>)
+            </div>
+          )
         }
 
       </div>
