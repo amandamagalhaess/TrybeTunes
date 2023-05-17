@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 class MusicCard extends React.Component {
@@ -8,23 +8,12 @@ class MusicCard extends React.Component {
     loading: false,
     isFavorite: false,
     favorites: undefined,
+    isAlredyFavorite: true,
   };
 
   componentDidMount() {
     this.callAPI();
   }
-
-  handleFavorites = ({ target }) => {
-    const { music } = this.props;
-    if (target.checked) {
-      this.setState({ loading: true, isFavorite: true }, async () => {
-        await addSong(music);
-        this.setState({
-          loading: false,
-        });
-      });
-    }
-  };
 
   callAPI = () => {
     this.setState({ loading: false }, async () => {
@@ -35,10 +24,30 @@ class MusicCard extends React.Component {
     });
   };
 
+  handleFavorites = ({ target }) => {
+    const { music } = this.props;
+    if (target.checked) {
+      this.setState({ loading: true, isFavorite: true }, async () => {
+        await addSong(music);
+        this.setState({
+          loading: false,
+        });
+      });
+    } else {
+      this.setState({ loading: true, isFavorite: false }, async () => {
+        await removeSong(music);
+        this.setState({
+          loading: false,
+          isAlredyFavorite: false,
+        });
+      });
+    }
+  };
+
   render() {
     const { music } = this.props;
     const { trackName, previewUrl, trackId } = music;
-    const { loading, isFavorite, favorites } = this.state;
+    const { loading, isFavorite, favorites, isAlredyFavorite } = this.state;
     return (
       <div>
         {
@@ -63,7 +72,7 @@ class MusicCard extends React.Component {
                         type="checkbox"
                         data-testid={ `checkbox-music-${trackId}` }
                         onChange={ this.handleFavorites }
-                        checked
+                        checked={ isAlredyFavorite }
                       />
                     )
                     : (
