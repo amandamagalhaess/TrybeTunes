@@ -80,8 +80,5 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-}
-
-.albuns div img {
-  width: 100px;
+  width: 85%;
 }

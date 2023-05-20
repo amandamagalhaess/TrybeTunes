@@ -1,0 +1,39 @@
+a {
+  align-items: center;
+  all: unset;
+  background-color: rgba(82, 83, 84, 0.04);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  width: 200px;
+}
+
+a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: scale(1.05, 1.05);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: center;
+  width: 150px;
+}
+
+.card img {
+  border-radius: 10px;
+  width: 150px;
+}
+
+.card h3 {
+  font-size: 12px;
+  margin: 13px 0 3px;
+}
+
+.card p {
+  font-size: 9px;
+  margin: 0;
+}
