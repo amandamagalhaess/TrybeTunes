@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom/cjs/react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 import '../Style/Login.css';
+import logo from '../images/logo.png';
 
 class Login extends React.Component {
   state = {
@@ -45,6 +46,7 @@ class Login extends React.Component {
         {
           loading ? <Loading /> : (
             <div>
+              <img src={ logo } alt="" />
               <input
                 data-testid="login-name-input"
                 placeholder="Digite seu nome"

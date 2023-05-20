@@ -1,0 +1,45 @@
+.header {
+  align-items: center;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  font-family: Epilogue , sans-serif;
+  justify-content: space-between;
+  width: 22%;
+}
+
+.header img {
+  margin-top: 30px;
+  width: 170px;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.navigation a {
+  all: unset;
+  color: #444955;
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 16px;
+  text-transform: capitalize;
+}
+
+.user {
+  margin-bottom: 30px;
+}
+
+.user p {
+  color: #444955;
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 16px;
+  text-transform: capitalize;
+}

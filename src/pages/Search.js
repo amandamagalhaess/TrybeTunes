@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from '../components/Loading';
 import Card from '../components/Card';
+import '../Style/Search.css';
 
 class Search extends React.Component {
   state = {
@@ -36,49 +37,50 @@ class Search extends React.Component {
   render() {
     const { isSearchButtonDisabled, artistName, loading, APIresponse } = this.state;
     return (
-      <div data-testid="page-search">
+      <div data-testid="page-search" className="page-search">
         <Header />
-        { loading ? <Loading />
-          : (
-            <div>
-              <input
-                data-testid="search-artist-input"
-                placeholder="Nome do Artista"
-                onChange={ this.handleInput }
-              />
-              <button
-                data-testid="search-artist-button"
-                disabled={ isSearchButtonDisabled }
-                onClick={ this.handleButton }
-              >
-                Pesquisar
-              </button>
-            </div>
-          )}
-
-        {
-          APIresponse && APIresponse.length > 0 && (
-            <section>
-              <h2>
-                Resultado de álbuns de:
-                {' '}
-                {artistName}
-              </h2>
-
+        <div className="search-content">
+          { loading ? <Loading />
+            : (
               <div>
-                {
-                  APIresponse
-                    .map((item) => <Card key={ item.collectionId } album={ item } />)
-                }
+                <input
+                  data-testid="search-artist-input"
+                  placeholder="Nome do Artista"
+                  onChange={ this.handleInput }
+                />
+                <button
+                  data-testid="search-artist-button"
+                  disabled={ isSearchButtonDisabled }
+                  onClick={ this.handleButton }
+                >
+                  Pesquisar
+                </button>
               </div>
-            </section>
-          )
-        }
+            )}
 
-        {
-          APIresponse && APIresponse.length === 0 && <p>Nenhum álbum foi encontrado</p>
-        }
+          {
+            APIresponse && APIresponse.length > 0 && (
+              <section>
+                <h2>
+                  Resultado de álbuns de:
+                  {' '}
+                  {artistName}
+                </h2>
 
+                <div className="albuns">
+                  {
+                    APIresponse
+                      .map((item) => <Card key={ item.collectionId } album={ item } />)
+                  }
+                </div>
+              </section>
+            )
+          }
+
+          {
+            APIresponse && APIresponse.length === 0 && <p>Nenhum álbum foi encontrado</p>
+          }
+        </div>
       </div>
     );
   }
