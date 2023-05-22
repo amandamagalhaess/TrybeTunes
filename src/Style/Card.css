@@ -1,4 +1,4 @@
-a {
+.card-link {
   align-items: center;
   all: unset;
   background-color: rgba(82, 83, 84, 0.04);
@@ -6,11 +6,11 @@ a {
   cursor: pointer;
   display: flex;
   justify-content: center;
-  margin-bottom: 25px;
+  margin: 12.5px;
   width: 200px;
 }
 
-a:hover {
+.card-link:hover {
   background-color: rgba(0, 0, 0, 0.05);
   transform: scale(1.05, 1.05);
 }

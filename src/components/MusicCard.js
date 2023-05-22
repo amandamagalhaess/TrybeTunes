@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
-// import Loading from './Loading';
+import '../Style/MusicCard.css';
 
 class MusicCard extends React.Component {
   state = {
@@ -44,7 +44,7 @@ class MusicCard extends React.Component {
       <div>
         {
           loading ? <Loading /> : (
-            <div>
+            <div className="song">
               <span>{trackName}</span>
               <audio data-testid="audio-component" src={ previewUrl } controls>
                 <track kind="captions" />
@@ -55,7 +55,6 @@ class MusicCard extends React.Component {
                 .
               </audio>
               <label>
-                Favorita
                 {
                   favorites
                   && favorites
@@ -77,6 +76,10 @@ class MusicCard extends React.Component {
                       />
                     )
                 }
+
+                <span className="material-symbols-outlined favorite-icon">
+                  favorite
+                </span>
               </label>
             </div>
           )

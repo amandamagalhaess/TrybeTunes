@@ -1,11 +1,10 @@
 .page-search {
   background: #eff3f9;
   display: flex;
-  height: 100vh;
 }
 
 .search-content {
-  width: 78%;
+  flex-grow: 1;
 }
 
 .search-content > div {
@@ -77,8 +76,6 @@
 }
 
 .albuns {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  width: 85%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }

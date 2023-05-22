@@ -5,6 +5,7 @@ import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import '../Style/Album.css';
 
 class Album extends React.Component {
   state = {
@@ -36,18 +37,20 @@ class Album extends React.Component {
   render() {
     const { loading, albumInfo, musics, favorites } = this.state;
     return (
-      <div data-testid="page-album">
+      <div data-testid="page-album" className="page-album">
         <Header />
         {
           loading ? <Loading /> : (
-            <section>
-              <div>
+            <section className="container">
+              <div className="album-content">
                 <img src={ albumInfo.artworkUrl100 } alt="" />
-                <h4 data-testid="album-name">{albumInfo.collectionName}</h4>
-                <p data-testid="artist-name">{albumInfo.artistName}</p>
+                <div>
+                  <h4 data-testid="album-name">{albumInfo.collectionName}</h4>
+                  <p data-testid="artist-name">{albumInfo.artistName}</p>
+                </div>
               </div>
 
-              <div>
+              <div className="songs">
                 {
                   musics
                     .map((music) => (<MusicCard

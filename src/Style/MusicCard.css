@@ -1,0 +1,45 @@
+.song {
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  padding-bottom: 25px;
+  width: 547px;
+}
+
+.song > span:nth-child( 1 ) {
+  align-items: center;
+  color: #001813;
+  display: flex;
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  margin-right: 10px;
+  width: 170px;
+}
+
+audio {
+  height: 55px;
+  width: 370px;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: white;
+}
+
+.song > label input {
+  all: unset;
+}
+
+.material-symbols-outlined {
+  cursor: pointer;
+  font-size: 20px;
+  font-variation-settings: 'FILL' 0 , 'wght' 400 , 'GRAD' 0 , 'opsz' 48;
+  margin-left: 10px;
+}
+
+.song input:checked + .material-symbols-outlined {
+  color: red;
+  font-variation-settings: 'FILL' 1 , 'wght' 400 , 'GRAD' 0 , 'opsz' 48;
+}
+

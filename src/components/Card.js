@@ -9,6 +9,7 @@ class Card extends React.Component {
     const { artworkUrl100, collectionName, artistName, collectionId } = album;
     return (
       <Link
+        className="card-link"
         data-testid={ `link-to-album-${collectionId}` }
         to={ `/album/${collectionId}` }
       >
