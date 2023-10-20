@@ -1,5 +1,6 @@
 {
   "name": "trybetunes",
+  "homepage": "https://amandamagalhaess.github.io/trybetunes",
   "version": "1.0.1",
   "private": true,
   "engines": {
@@ -22,7 +23,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint:styles": "npx stylelint '**/*.css'",
-    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx"
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +47,7 @@
   },
   "devDependencies": {
     "@trybe/eslint-config-frontend": "^1.7.1",
+    "gh-pages": "^6.0.0",
     "prop-types": "^15.8.1",
     "stylelint": "^14.11.0",
     "stylelint-config-standard": "^28.0.0",
