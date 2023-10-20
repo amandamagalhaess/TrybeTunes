@@ -1,0 +1,38 @@
+.page-favorites {
+  background-color: #eff3f9;
+  display: flex;
+}
+
+.songs-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.songs-header {
+  align-items: center;
+  background: linear-gradient(123.66deg, #003be5 12.08%, #00d5e2 86.52%);
+  display: flex;
+  height: 200px;
+  justify-content: center;
+}
+
+.songs-header h1 {
+  color: white;
+  font-family: Epilogue , sans-serif;
+  font-size: 40px;
+}
+
+.songs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.songs-container > div {
+  display: flex;
+  justify-content: center;
+}
+

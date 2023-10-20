@@ -1,0 +1,43 @@
+.page-profile-edit {
+  display: flex;
+}
+
+.profile-edit-content {
+  flex: 1;
+}
+
+.blue-content input {
+  background: none;
+  border: 1px solid #444955;
+  border-radius: 2px;
+  height: 37px;
+  left: 323px;
+  position: absolute;
+  text-align: center;
+  top: 330px;
+  width: 192px;
+}
+
+.gray-content input {
+  border: none;
+  border-bottom: 1px solid #444955;
+  height: 21px;
+  padding: 8px 0 8px 8px;
+  width: 280px;
+}
+
+.gray-content textarea {
+  border: none;
+  border-bottom: 1px solid #444955;
+  height: 106px;
+  padding: 8px 0 8px 8px;
+  resize: none;
+  width: 490px;
+}
+
+.gray-content textarea::placeholder, .gray-content input::placeholder {
+  color: #c5c9ce;
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  line-height: 150%;
+}
