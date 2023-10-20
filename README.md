@@ -26,7 +26,7 @@ Nesse projeto foram avaliadas as seguintes habilidades:
 
 - Utilizar a função `setState` de forma a garantir que um determinado código só é executado após o estado ser atualizado;
 
-- Utilizar o componente `BrowserRouter` corretamente;
+- Utilizar o componente `BrowserRouter` corretamente. (Aqui, ele foi substituido pelo `HashRouter` para o deploy no GitHub Pages);
 
 - Criar rotas, mapeando o caminho da URL com o componente correspondente, via `Route`;
 
